@@ -6,6 +6,43 @@
                     <img src="../../../assets/logo.png" alt=""/>
                 </div>
                 <h1 class="text-center">Register Here !!</h1>
+                <form [formGroup]="signupForm" (ngSubmit)="formSubmit()">
+                    <!-- Username Field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username" placeholder="Enter here">
+                    </mat-form-field>
+                    <!-- Password Field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>User Password</mat-label>
+                        <input type="password" matInput formControlName="password" placeholder="Enter here">
+                    </mat-form-field>
+                    <!-- FirstName Field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName" placeholder="Enter here">
+                    </mat-form-field>
+                    <!-- LastName Field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName" placeholder="Enter here">
+                    </mat-form-field>
+                    <!-- Email Field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email Address</mat-label>
+                        <input type="email" matInput formControlName="email" placeholder="Enter here">
+                    </mat-form-field>
+                    <!-- PhoneNumber Field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input type="number" matInput formControlName="phone" placeholder="Enter here">
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Register</button>
+                        <button style="margin-left: 20px;" mat-raised-button color="accent">Clear</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

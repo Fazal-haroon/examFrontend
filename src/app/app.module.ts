@@ -9,6 +9,10 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterOutlet} from "@angular/router";
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -24,6 +28,11 @@ import {RouterOutlet} from "@angular/router";
         MatButtonModule,
         AppRoutingModule,
         RouterOutlet,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
