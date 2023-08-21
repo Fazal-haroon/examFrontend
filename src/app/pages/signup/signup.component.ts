@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from "../../services/user.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
     selector: 'app-signup',
@@ -11,7 +12,9 @@ export class SignupComponent implements OnInit {
 
     signupForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, private userService: UserService) { // Declare formBuilder as private
+    constructor(private formBuilder: FormBuilder,
+                private userService: UserService,
+                private snack: MatSnackBar) { // Declare formBuilder as private
         this.signupForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required],
@@ -33,16 +36,25 @@ export class SignupComponent implements OnInit {
                 data => {
                     // Handle success
                     console.log('User added successfully:', data);
-                    alert('success')
+                    // alert('success')
+                    this.snack.open('successfully created', 'ok', {
+                        duration: 3000
+                    })
                 },
                 error => {
                     // Handle error
                     console.error('Error adding user:', error);
-                    alert('something went wrong')
+                    // alert('something went wrong')
+                    this.snack.open('something went wrong', 'ok', {
+                        duration: 3000
+                    })
                 }
             );
         } else {
-            alert('form is invalid');
+            // alert('form is invalid');
+            this.snack.open("Form is invalid!!", 'ok', {
+                duration: 3000,
+            })
         }
     }
 }
