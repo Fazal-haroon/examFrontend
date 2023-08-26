@@ -3,13 +3,13 @@
         <div class="row mt20">
             <div class="col-md-6 offset-md-3">
                 <mat-card>
-                <div class="container text-center">
+                <div class="container text-center mt20">
                     <img src="../../../assets/logo.png" alt=""/>
                 </div>
 
-                <h1 class="text-center">Login Here !</h1>
+                <h1 class="text-center">Login Here !!</h1>
 
-                <form [formGroup]="loginForm" (ngSubmit)="formSubmit()">
+                <form class="ml20 mr20 mb20" [formGroup]="loginForm" (ngSubmit)="formSubmit()">
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Username</mat-label>
                         <input matInput formControlName="username" placeholder="Enter here">
