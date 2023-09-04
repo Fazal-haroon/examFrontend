@@ -34,6 +34,34 @@ export class LoginService {
   //logout: remove token from local storage
   public logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user')
     return true;
+  }
+
+  //get token
+  public getToken() {
+    return localStorage.getItem('token');
+  }
+
+  //set userDetail
+  public setUser(user: any) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  //get user
+  public getUser(){
+    let userStr = localStorage.getItem('user');
+    if (userStr != null) {
+      return JSON.parse(userStr);
+    } else {
+      this.logout();
+      return null;
+    }
+  }
+
+  //get user role
+  public getUserRole(){
+    let user = this.getUser();
+    return user.authorities[0].authority;
   }
 }
