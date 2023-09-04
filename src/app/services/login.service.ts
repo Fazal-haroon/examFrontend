@@ -14,4 +14,26 @@ export class LoginService {
   public generateToken(loginData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/generate-token`, loginData)
   }
+
+  //login user: set token in localStorage
+  public loginUser(token: any) {
+    localStorage.setItem('token', token);
+    return token;
+  }
+
+  //isLogin: user is logged in or not
+  public isLoggedIn() {
+    let tokenStr = localStorage.getItem('token')
+    if (tokenStr == undefined || tokenStr == '' || tokenStr == null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  //logout: remove token from local storage
+  public logout() {
+    localStorage.removeItem('token');
+    return true;
+  }
 }
