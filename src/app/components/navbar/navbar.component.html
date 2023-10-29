@@ -4,13 +4,16 @@
     </a>
     <span>Examportal</span>
     <span class="example-spacer"></span>
-    <a *ngIf="!login.isLoggedIn()" routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button *ngIf="isLoggedIn" style="margin-right: 100px" routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        {{ user.username }}
+    </button>
+    <a *ngIf="!isLoggedIn" routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>login</mat-icon>
     </a>
-    <a (click)="logout()" *ngIf="login.isLoggedIn()" routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <a (click)="logout()" *ngIf="isLoggedIn" routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>logout</mat-icon>
     </a>
-    <a *ngIf="!login.isLoggedIn()" routerLink="/signup" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <a *ngIf="!isLoggedIn" routerLink="/signup" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon>description</mat-icon>
     </a>
 </mat-toolbar>

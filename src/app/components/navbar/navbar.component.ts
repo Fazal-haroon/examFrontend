@@ -8,13 +8,25 @@ import {LoginService} from "../../services/login.service";
 })
 export class NavbarComponent implements OnInit{
 
-  constructor(public login: LoginService) {
+  isLoggedIn: boolean= false;
+  user: any = null;
+
+  constructor(private login: LoginService) {
   }
 
   ngOnInit(): void {
+    this.isLoggedIn = this.login.isLoggedIn();
+    this.user = this.login.getUser();
+    this.login.loginStatusSubject.asObservable().subscribe((data) => {
+      this.isLoggedIn = this.login.isLoggedIn();
+      this.user = this.login.getUser();
+    })
   }
 
   logout() {
     this.login.logout();
+    // this.user = null;
+    // this.isLoggedIn = false;
+    window.location.reload();
   }
 }
